@@ -1,0 +1,28 @@
+<!--pages/student/orderedBook/orderedBook.wxml-->
+<view class='container'>
+  <view class='bookList-container'>
+    <block wx:for="{{books}}" wx:for-item="book">
+      <view class='bookinfo'>
+        <view>
+          <text class='text'>课程：</text>
+          <text class='text'>{{book.caption}}</text>
+        </view>
+        <view>
+          <text class='text'>授课教师：</text>
+          <text class='text'>{{book.name}}</text>
+        </view>
+        <view>
+          <text class='text'>授课时间：</text>
+          <text class='text'>{{book.time}}</text>
+        </view>
+        <view>
+          <text class='text'>授课学期：</text>
+          <text class='text'>{{book.term}}</text>
+        </view>
+        <view catchtap='orderBook' data-courseid='{{book.courseid}}' class='order'>
+          <text>点击订购教材</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,11 @@
+<!--pages/student/student.wxml-->
+<view class='container'>
+  <view catchtap='showOrderedBook' class='function-container'>
+    <image src='../../images/id.png'></image>
+    <view>教材订购</view>
+  </view>
+  <view catchtap='showOrderedBookList' class='function-container'>
+    <image src='../../images/id.png'></image>
+    <view>已购教材</view>
+  </view>
+</view>

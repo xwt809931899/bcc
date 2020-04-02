@@ -1,0 +1,46 @@
+/**index.wxss**/
+.container{
+  width: 100%;
+}
+.picker{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  padding: 20rpx;
+  margin: 40rpx;
+  width: 40%;
+  border-top:1rpx #999 solid; 
+  border-bottom:1rpx #999 solid; 
+}
+.course{
+  width: 640rpx;
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx;
+  margin-top: 35rpx;
+  background-color: whitesmoke;
+  border-radius: 20rpx;
+}
+.course view{
+  margin-top:20rpx; 
+}
+.text{
+  font-size: 34rpx;
+  margin-right:10rpx;
+  margin-left: 15rpx;
+}
+.warning{
+  color: lightsalmon;
+}
+image{
+  height: 50rpx;
+  width: 50rpx;
+  margin-left: 90rpx;
+}
+.isbn{
+  padding-top: 20rpx;
+  border-top: 1rpx solid #999;
+  display: flex;
+  flex-direction: row;
+}

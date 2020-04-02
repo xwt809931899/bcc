@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gebixiaoba.dao.WarehousemanDAO">
+  <resultMap id="BaseResultMap" type="cn.gebixiaoba.entity.Warehouseman">
+    <result column="warehousemanid" jdbcType="VARCHAR" property="warehousemanid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="gender" jdbcType="BIT" property="gender" />
+  </resultMap>
+  <insert id="insert" keyColumn="warehousemanid" keyProperty="warehousemanid" parameterType="cn.gebixiaoba.entity.Warehouseman" useGeneratedKeys="true">
+    insert into T_Warehouseman (`name`, `password`, gender
+      )
+    values (#{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{gender,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="warehousemanid" keyProperty="warehousemanid" parameterType="cn.gebixiaoba.entity.Warehouseman" useGeneratedKeys="true">
+    insert into T_Warehouseman
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="findByNameAndPassword" parameterType="cn.gebixiaoba.entity.Warehouseman" resultMap="BaseResultMap">
+    select * from T_Warehouseman where warehousemanid = #{warehousemanid,jdbcType=VARCHAR} and `password` = #{password,jdbcType=VARCHAR}
+  </select>
+
+
+
+</mapper>

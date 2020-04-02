@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gebixiaoba.dao.StudentDAO">
+  <resultMap id="BaseResultMap" type="cn.gebixiaoba.entity.Student">
+    <result column="stuid" jdbcType="VARCHAR" property="stuid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="gender" jdbcType="BIT" property="gender" />
+    <result column="clazz" jdbcType="VARCHAR" property="clazz" />
+    <result column="faculty" jdbcType="INTEGER" property="faculty" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.gebixiaoba.entity.Student">
+    insert into T_Student (stuid, `name`, gender, 
+      clazz, faculty, `password`
+      )
+    values (#{stuid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=BIT}, 
+      #{clazz,jdbcType=VARCHAR}, #{faculty,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.gebixiaoba.entity.Student">
+    insert into T_Student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stuid != null">
+        stuid,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="clazz != null">
+        clazz,
+      </if>
+      <if test="faculty != null">
+        faculty,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stuid != null">
+        #{stuid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=BIT},
+      </if>
+      <if test="clazz != null">
+        #{clazz,jdbcType=VARCHAR},
+      </if>
+      <if test="faculty != null">
+        #{faculty,jdbcType=INTEGER},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="findByNameAndPassword" parameterType="cn.gebixiaoba.entity.Student" resultMap="BaseResultMap">
+    select * from T_Student where stuid = #{stuid,jdbcType=VARCHAR} and `password` = #{password,jdbcType=VARCHAR}
+  </select>
+
+  <resultMap id="OrderedBookMap" type="cn.gebixiaoba.entity.OrderedBook">
+    <result column="ISBN" jdbcType="VARCHAR" property="isbn" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="press" jdbcType="VARCHAR" property="press" />
+    <result column="price" jdbcType="REAL" property="price" />
+    <result column="term" jdbcType="VARCHAR" property="term" />
+  </resultMap>
+
+  <select id="findStudentOrderedBook" parameterType="java.lang.String" resultMap="OrderedBookMap">
+    select ISBN,title,author,press,price,term from T_SelectCourse,T_Course,T_Textbook
+    WHERE T_Course.courseId = T_SelectCourse.courseId and T_Course.textbook = T_Textbook.ISBN and T_SelectCourse.isOrderBook = 1 and T_SelectCourse.stuid= #{stuid,jdbcType=VARCHAR}
+    ORDER BY term desc
+  </select>
+
+  <resultMap id="StudentCourseOrderBookMap" type="cn.gebixiaoba.entity.StudentCourseOrderBook">
+    <result column="caption" jdbcType="VARCHAR" property="caption" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="time" jdbcType="VARCHAR" property="time" />
+    <result column="courseid" jdbcType="INTEGER" property="courseid" />
+    <result column="term" jdbcType="VARCHAR" property="term" />
+  </resultMap>
+
+  <select id="findStudentNotOrderedBook" parameterType="java.lang.String" resultMap="StudentCourseOrderBookMap">
+    SELECT caption,`name`,time,term,T_Course.courseId as courseid from T_SelectCourse,T_Course,T_Teacher
+    WHERE T_SelectCourse.courseId = T_Course.courseId and T_Course.teacher = T_Teacher.teacherId and isOrderBook = 0 and T_SelectCourse.stuid= #{stuid,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

@@ -1,0 +1,76 @@
+/* pages/warehouseman/addBook/addBook.wxss */
+.isbn-container{
+  margin-top: 50rpx;
+  border-radius:20rpx; 
+  display: flex;
+  flex-direction: row;
+  height: 100rpx;
+  width: 640rpx;
+  background-color: whitesmoke;
+  align-items: center;
+  justify-content:center; 
+}
+.isbn-button{
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content:center; 
+  align-items: center;
+  width: 70rpx;
+  height: 100rpx;
+  border-bottom-right-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  background-color: #fb9047;
+}
+.isbn-container input{
+  width: 500rpx;
+}
+.isbn-container image{
+  margin-right: 5rpx;
+  height: 60rpx;
+  width: 60rpx;
+}
+.bookinfo{
+  width: 600rpx;
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx;
+  margin-top: 35rpx;
+  background-color: whitesmoke;
+  border-radius: 20rpx;
+}
+.bookinfo view{
+  margin-top:20rpx; 
+}
+.text{
+  font-size: 34rpx;
+  margin-right:10rpx;
+  margin-left: 15rpx;
+}
+.placeholder {
+  
+  color: #cdcdcd;
+}
+.input-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.input {
+  width: 200rpx;
+  height: 80rpx;
+  border-radius: 20rpx;
+  margin-top: 30rpx;
+  background-color: whitesmoke;
+}
+
+button {
+  width: 600rpx;
+  background: #fb9047;
+  color: white;
+  border: none;
+  margin-top: 80rpx;
+}

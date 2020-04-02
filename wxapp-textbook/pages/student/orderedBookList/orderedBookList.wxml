@@ -1,0 +1,38 @@
+<!--pages/student/orderedBookList/orderedBookList.wxml-->
+<view class='container'>
+  <view class='money-container'>
+    <text>当前教材总共花费</text>
+    <text class='money'>{{money}}元</text>
+    <text>费用将在毕业离校时结算</text>
+  </view>
+  <view class='bookList-container'>
+    <block wx:for="{{books}}" wx:for-item="book">
+      <view class='bookinfo'>
+        <view>
+          <text class='text'>书名：</text>
+          <text class='text'>{{book.title}}</text>
+        </view>
+        <view>
+          <text class='text'>作者：</text>
+          <text class='text'>{{book.author}}</text>
+        </view>
+        <view>
+          <text class='text'>出版社：</text>
+          <text class='text'>{{book.press}}</text>
+        </view>
+        <view>
+          <text class='text'>ISBN编号：</text>
+          <text class='text'>{{book.isbn}}</text>
+        </view>
+        <view>
+          <text class='text'>价格：</text>
+          <text class='text'>{{book.price}}</text>
+        </view>
+        <view>
+          <text class='text'>购买学期:</text>
+          <text class='text'>{{book.term}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

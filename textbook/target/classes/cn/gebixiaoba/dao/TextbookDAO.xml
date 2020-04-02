@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gebixiaoba.dao.TextbookDAO">
+  <resultMap id="BaseResultMap" type="cn.gebixiaoba.entity.Textbook">
+    <result column="ISBN" jdbcType="VARCHAR" property="isbn" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="press" jdbcType="VARCHAR" property="press" />
+    <result column="price" jdbcType="REAL" property="price" />
+    <result column="total" jdbcType="INTEGER" property="total" />
+  </resultMap>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    *
+    from T_Textbook
+    where ISBN = #{isbn,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="cn.gebixiaoba.entity.Textbook">
+    insert into T_Textbook (ISBN, title, author, 
+      press, price, total)
+    values (#{isbn,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
+      #{press,jdbcType=VARCHAR}, #{price,jdbcType=REAL}, #{total,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.gebixiaoba.entity.Textbook">
+    insert into T_Textbook
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="isbn != null">
+        ISBN,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="press != null">
+        press,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="total != null">
+        total,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="isbn != null">
+        #{isbn,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="press != null">
+        #{press,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=REAL},
+      </if>
+      <if test="total != null">
+        #{total,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="findByISBN" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT * FROM T_Textbook where ISBN = #{ISBN,jdbcType=VARCHAR}
+  </select>
+
+  <update id="updateTextbook">
+    update T_Textbook
+     set total = #{total,jdbcType=INTEGER},
+      price = #{price,jdbcType=REAL}
+    where isbn =  #{isbn,jdbcType=VARCHAR}
+  </update>
+
+</mapper>

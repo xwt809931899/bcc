@@ -1,0 +1,21 @@
+<!--pages/index/insertTextbook/insertTextbook.wxml-->
+<view class='container'>
+  <view class='tips'>给{{caption}}添加教材</view>
+  <view class='form-container'>
+    <form bindsubmit='fromSubmit'>
+      <view class='isbn-container'>
+        <input name="ISBN" placeholder='请输入ISBN编号或扫描条形码' value='{{ISBN}}' bindinput='getISBN'></input>
+        <image catchtap='scan' src='../../../images/id.png'></image>
+        <view catchtap='getBookInfo' class='isbn-button'><text>确定</text></view>
+      </view>
+      <view class='textbook-info' wx:if="{{textbook.isbn>0}}">
+        <view>ISBN:<input name="isbn" value='{{textbook.isbn}}'></input></view>
+        <view>书名:<input name="title" value='{{textbook.name}}'></input></view>
+        <view>作者:<input name="author" value='{{textbook.author}}'></input></view>
+        <view>出版社:<input name="press" value='{{textbook.publisher}}'></input></view>
+        <button form-type='submit'>提交</button>
+      </view>
+      
+    </form>
+  </view>
+</view>

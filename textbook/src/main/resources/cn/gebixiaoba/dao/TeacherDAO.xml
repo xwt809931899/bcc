@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gebixiaoba.dao.TeacherDAO">
+  <resultMap id="BaseResultMap" type="cn.gebixiaoba.entity.Teacher">
+    <result column="teacherId" jdbcType="VARCHAR" property="teacherid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="gender" jdbcType="BIT" property="gender" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.gebixiaoba.entity.Teacher">
+    insert into T_Teacher (teacherId, `name`, gender, 
+      `password`)
+    values (#{teacherid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=BIT}, 
+      #{password,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.gebixiaoba.entity.Teacher">
+    insert into T_Teacher
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="teacherid != null">
+        teacherId,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="teacherid != null">
+        #{teacherid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=BIT},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="findByNameAndPassword" parameterType="cn.gebixiaoba.entity.Teacher" resultMap="BaseResultMap">
+    select * from T_Teacher where teacherId = #{teacherid,jdbcType=VARCHAR} and `password` = #{password,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

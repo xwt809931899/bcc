@@ -1,0 +1,40 @@
+<!--pages/warehouseman/searchBook/searchBook.wxml-->
+<view class='container'>
+  <form bindsubmit='fromSubmit'>
+    <view class='isbn-container'>
+      <input name="isbn" placeholder='请输入ISBN编号或扫描条形码' value='{{ISBN}}' bindinput='getISBN'></input>
+      <image catchtap='scan' src='../../../images/id.png'></image>
+      <view catchtap='getBookInfo' class='isbn-button'>
+        <text>确定</text>
+      </view>
+    </view>
+
+    <view class='bookinfo' wx:if="{{book.isbn>0}}">
+      <view>
+        <text class='text'>书名：</text>
+        <text class='text'>{{book.title}}</text>
+      </view>
+      <view>
+        <text class='text'>作者：</text>
+        <text class='text'>{{book.author}}</text>
+      </view>
+      <view>
+        <text class='text'>出版社：</text>
+        <text class='text'>{{book.press}}</text>
+      </view>
+      <view>
+        <text class='text'>ISBN编号：</text>
+        <text class='text'>{{book.isbn}}</text>
+      </view>
+      <view>
+        <text class='text'>价格：</text>
+        <text class='text'>{{book.price}}</text>
+      </view>
+      <view>
+        <text class='text'>库存:</text>
+        <text class='text'>{{book.total}}</text>
+      </view>
+    </view>
+  </form>
+</view>
+

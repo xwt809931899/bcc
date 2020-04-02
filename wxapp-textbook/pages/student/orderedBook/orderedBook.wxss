@@ -1,0 +1,29 @@
+/* pages/student/orderedBook/orderedBook.wxss */
+.bookinfo{
+  width: 640rpx;
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx;
+  margin-top: 35rpx;
+  background-color: whitesmoke;
+  border-radius: 20rpx;
+}
+.bookinfo view{
+  margin-top:20rpx; 
+}
+.text{
+  font-size: 34rpx;
+  margin-right:10rpx;
+  margin-left: 15rpx;
+}
+.order{
+  padding: 0;
+  width: 640rpx;
+  display: flex;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+  border-top: 1rpx solid lightslategray;
+  color: lightsalmon;
+  align-items: center;
+  justify-content: center;
+}

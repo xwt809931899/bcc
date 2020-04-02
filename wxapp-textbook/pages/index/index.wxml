@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="picker">
+    <picker bindchange='bindPickerChange' range='{{term}}'>
+      <view>当前选择学期:</view>
+      <view>{{term[index]}}</view>
+    </picker>
+  </view>
+  <view class='courseList'>
+    <block wx:for="{{courses}}"  wx:for-item="course">
+      <view class='course'>
+        <view>
+          <text class='text'>课程名：</text>
+          <text class='text'>{{course.caption}}</text>
+        </view>
+        <view>
+          <text class='text'>上课时间：</text>
+          <text class='text'>{{course.time}}</text>
+        </view>
+        <view class='isbn'>
+          <text class='text'>教材ISBN：</text>
+          <text wx:if="{{course.textbook.length>0}}" class='text'>{{course.textbook}}</text>
+          <text data-courseid='{{course.courseid}}' data-caption='{{course.caption}}' catchtap="insertTextbook" wx:else class='warning'>未选教材，点此添加</text>
+          <image wx:if="{{course.textbook.length>0}}"  data-textbook='{{course.textbook}}' catchtap='showDetails' src='../../images/more.png'></image>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

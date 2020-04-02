@@ -1,0 +1,15 @@
+<!--pages/warehouseman/warehouseman.wxml-->
+<view class='container'>
+  <view catchtap='showAddPage' class='function-container'>
+    <image src='../../images/id.png'></image>
+    <view>教材入库</view>
+  </view>
+  <view catchtap='showReduceBook' class='function-container'>
+    <image src='../../images/id.png'></image>
+    <view>教材出库</view>
+  </view>
+  <view catchtap='showSearchBook' class='function-container'>
+    <image src='../../images/id.png'></image>
+    <view>教材查询</view>
+  </view>
+</view>
