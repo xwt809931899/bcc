@@ -26,8 +26,7 @@ Page({
         "Content-Type": "json",
       },
       success: function (res) {
-        console.log(res);
-        if (res.data == null) {
+        if (utils.isEmpty(res.data)) {
           wx.showModal({
             title: '提示',
             content: '教材库中没有该图书信息',
@@ -44,7 +43,6 @@ Page({
     wx.scanCode({
       success: function (res) {
         var url = app.globalData.baseUrl + '/textbook/isbn/' + res.result
-        console.log(url)
         that.setData({
           ISBN: res.result
         })

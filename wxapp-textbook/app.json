@@ -1,21 +1,24 @@
 {
-  "pages":[
+  "pages": [
     "pages/warehouseman/warehouseman",
     "pages/warehouseman/addBook/addBook",
     "pages/warehouseman/reduceBook/reduceBook",
     "pages/warehouseman/searchBook/searchBook",
+    "pages/warehouseman/orderBookList/orderBookList",
+    "pages/warehouseman/classSignature/classSignature",
+    "pages/warehouseman/classSignature/selectSignature/selectSignature",
     "pages/login/login",
     "pages/student/student",
     "pages/index/insertTextbook/insertTextbook",
     "pages/student/orderedBookList/orderedBookList",
     "pages/student/orderedBook/orderedBook",
     "pages/index/index"
-    
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
-  }
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
 }

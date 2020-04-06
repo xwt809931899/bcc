@@ -43,6 +43,19 @@
     select * from T_Warehouseman where warehousemanid = #{warehousemanid,jdbcType=VARCHAR} and `password` = #{password,jdbcType=VARCHAR}
   </select>
 
+  <resultMap id="BookResultMap" type="cn.gebixiaoba.entity.WarehousemanOrderBook">
+    <result column="ISBN" jdbcType="VARCHAR" property="isbn" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="press" jdbcType="VARCHAR" property="press" />
+    <result column="total" jdbcType="INTEGER" property="total" />
+  </resultMap>
 
+  <select id="findAllOrderBook" resultMap="BookResultMap">
+
+    SELECT ISBN,title,author,press,SUM(isOrderBook) as total FROM T_SelectCourse,T_Course,T_Textbook where T_SelectCourse.courseId = T_Course.courseId and T_Course.textbook = T_Textbook.ISBN
+ GROUP BY title,ISBN,author,press ORDER BY total desc
+
+  </select>
 
 </mapper>

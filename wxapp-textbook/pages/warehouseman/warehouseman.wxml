@@ -12,4 +12,12 @@
     <image src='../../images/id.png'></image>
     <view>教材查询</view>
   </view>
+  <view catchtap='showBookList' class='function-container'>
+    <image src='../../images/id.png'></image>
+    <view>订购清单</view>
+  </view>
+  <view catchtap='showClassSignature' class='function-container'>
+    <image src='../../images/id.png'></image>
+    <view>领书签单</view>
+  </view>
 </view>

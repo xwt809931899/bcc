@@ -1,0 +1,22 @@
+<!--pages/warehouseman/classSignature/classSignature.wxml-->
+<view class='container'>
+  <view class='form-container'>
+    <view catchtap="showSignatureSelect" class="select-container">
+      <text>签字表查询</text>
+    </view>
+    <form bindsubmit="upload" >
+      <view class='class-container'>
+        <input name="clazz" placeholder='请输入班级'></input>
+      </view>
+      <view class='upload-container'>
+        <image catchtap='choosePic' wx:if="{{tempFilePaths.length<1}}" src='../../../images/uploadImg.png'></image>
+        <image catchtap="preview" class='uploadPic' src='{{tempFilePaths}}'></image>
+      </view>
+      <view class='tips-container'>
+        <textarea name="tips" placeholder='请输入备注（非必填）'></textarea>
+      </view>
+      <button class='submit-button' form-type='submit'>提交</button>
+    </form>
+  </view>
+
+</view>

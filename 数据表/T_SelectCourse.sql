@@ -1,0 +1,6 @@
+INSERT INTO `T_SelectCourse` VALUES ('2201510001', 1, '');
+INSERT INTO `T_SelectCourse` VALUES ('2201510001', 2, '');
+INSERT INTO `T_SelectCourse` VALUES ('2201510001', 4, '');
+INSERT INTO `T_SelectCourse` VALUES ('2201520001', 1, '');
+INSERT INTO `T_SelectCourse` VALUES ('2201510002', 2, '');
+INSERT INTO `T_SelectCourse` VALUES ('2201510002', 4, '');

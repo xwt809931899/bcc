@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gebixiaoba.dao.SignatureDAO">
+  <resultMap id="BaseResultMap" type="cn.gebixiaoba.entity.Signature">
+    <result column="clazz" jdbcType="VARCHAR" property="clazz" />
+    <result column="tips" jdbcType="VARCHAR" property="tips" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.gebixiaoba.entity.Signature">
+    insert into T_Signature (clazz, tips, `path`
+      )
+    values (#{clazz,jdbcType=VARCHAR}, #{tips,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.gebixiaoba.entity.Signature">
+    insert into T_Signature
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="clazz != null">
+        clazz,
+      </if>
+      <if test="tips != null">
+        tips,
+      </if>
+      <if test="path != null">
+        `path`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="clazz != null">
+        #{clazz,jdbcType=VARCHAR},
+      </if>
+      <if test="tips != null">
+        #{tips,jdbcType=VARCHAR},
+      </if>
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="findByClazz" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT * FROM T_Signature WHERE clazz =  #{clazz,jdbcType=VARCHAR}
+  </select>
+</mapper>

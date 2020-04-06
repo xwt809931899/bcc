@@ -1,45 +1,26 @@
-// pages/warehouseman/warehouseman.js
+// pages/warehouseman/orderBookList/orderBookList.js
+const app = getApp()
+var utils = require("../../../utils/utils.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    books:[]
   },
 
-  showAddPage: function () {
-    wx.navigateTo({
-      url: 'addBook/addBook'
-    })
-  },
-
-  showReduceBook: function () {
-    wx.navigateTo({
-      url: 'reduceBook/reduceBook'
-    })
-  },
-
-  showSearchBook: function () {
-    wx.navigateTo({
-      url: 'searchBook/searchBook'
-    })
-  },
-  showBookList: function () {
-    wx.navigateTo({
-      url: 'orderBookList/orderBookList'
-    })
-  },
-  showClassSignature: function () {
-    wx.navigateTo({
-      url: 'classSignature/classSignature'
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    var url = app.globalData.baseUrl + '/warehouseman/orderbooklist'
+    utils.get(url, function (res) {
+      that.setData({
+        books: res
+      });
+    });
   },
 
   /**

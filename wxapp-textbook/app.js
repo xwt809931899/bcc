@@ -35,7 +35,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    //baseUrl: 'http://127.0.0.1:8080'
-    baseUrl: 'http://192.168.0.102:8080'
+    baseUrl: 'http://127.0.0.1:8080'
+    //baseUrl: 'http://192.168.0.103:8080'
   }
 })

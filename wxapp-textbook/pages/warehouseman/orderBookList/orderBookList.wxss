@@ -1,0 +1,18 @@
+/* pages/warehouseman/orderBookList/orderBookList.wxss */
+.bookinfo{
+  width: 640rpx;
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx;
+  margin-top: 35rpx;
+  background-color: whitesmoke;
+  border-radius: 20rpx;
+}
+.bookinfo view{
+  margin-top:20rpx; 
+}
+.text{
+  font-size: 34rpx;
+  margin-right:10rpx;
+  margin-left: 15rpx;
+}

@@ -1,0 +1,29 @@
+/* pages/warehouseman/classSignature/selectSignature/selectSignature.wxss */
+.class-container{
+  margin-top: 50rpx;
+  border-radius:20rpx; 
+  display: flex;
+  flex-direction: row;
+  height: 100rpx;
+  width: 640rpx;
+  background-color: whitesmoke;
+  align-items: center;
+  justify-content:center; 
+}
+.isbn-button{
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content:center; 
+  align-items: center;
+  width: 100rpx;
+  height: 100rpx;
+  border-bottom-right-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  background-color: #fb9047;
+}
+.class-container input{
+  width: 500rpx;
+}

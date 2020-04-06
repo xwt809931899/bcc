@@ -1,40 +1,32 @@
-// pages/warehouseman/warehouseman.js
+// pages/warehouseman/classSignature/selectSignature/selectSignature.js
+const app = getApp()
+var utils = require("../../../../utils/utils.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    calzz:'',
+    signature:'',
+    imgurl:''
   },
-
-  showAddPage: function () {
-    wx.navigateTo({
-      url: 'addBook/addBook'
+  getClazz: function(e) {
+    this.setData({
+      calzz: e.detail.value
+    })
+  },
+  getSignature:function(){
+    var url = app.globalData.baseUrl + '/warehouseman/signature/'+this.data.calzz;
+    var that = this;
+    utils.get(url,function(res){
+      that.setData({
+        signature:res,
+        imgurl:'http://127.0.0.1:8080/img/original/'+res.path
+      })
     })
   },
 
-  showReduceBook: function () {
-    wx.navigateTo({
-      url: 'reduceBook/reduceBook'
-    })
-  },
-
-  showSearchBook: function () {
-    wx.navigateTo({
-      url: 'searchBook/searchBook'
-    })
-  },
-  showBookList: function () {
-    wx.navigateTo({
-      url: 'orderBookList/orderBookList'
-    })
-  },
-  showClassSignature: function () {
-    wx.navigateTo({
-      url: 'classSignature/classSignature'
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */

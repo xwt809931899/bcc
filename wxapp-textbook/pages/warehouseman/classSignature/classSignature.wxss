@@ -1,0 +1,57 @@
+/* pages/warehouseman/classSignature/classSignature.wxss */
+.select-container{
+  float: right;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  margin-bottom: 30rpx;
+  color: #999;
+  font-size: 30rpx;
+}
+.class-container{
+  margin-top: 50rpx;
+  border-radius:20rpx; 
+  display: flex;
+  flex-direction: row;
+  height: 100rpx;
+  width: 640rpx;
+  background-color: whitesmoke;
+  align-items: center;
+  justify-content:center; 
+}
+.class-container input{
+  width: 500rpx;
+}
+.upload-container{
+  margin-top: 40rpx;
+}
+.upload-container image{
+  height: 100rpx;
+  width: 100rpx;
+}
+.uploadPic{
+  height: 200rpx;
+  width: 200rpx;
+}
+.tips-container{
+  display: flex;
+  flex-direction: row;
+  margin-top: 40rpx;
+  height: 350rpx;
+  width: 640rpx;
+  background-color: whitesmoke;
+  border-radius:20rpx;
+  justify-content:center;  
+}
+
+.tips-container textarea{
+  padding-top: 30rpx;
+  width: 500rpx;
+}
+
+.submit-button{
+ width: 600rpx;
+  background: #fb9047;
+  color: white;
+  border: none;
+  margin-top: 80rpx;
+}

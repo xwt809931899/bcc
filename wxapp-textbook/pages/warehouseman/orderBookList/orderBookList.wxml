@@ -1,0 +1,29 @@
+<!--pages/warehouseman/orderBookList/orderBookList.wxml-->
+<view class='container'>
+  <view class='bookList-container'>
+    <block wx:for="{{books}}" wx:for-item="book">
+      <view class='bookinfo'>
+        <view>
+          <text class='text'>书名：</text>
+          <text class='text'>{{book.title}}</text>
+        </view>
+        <view>
+          <text class='text'>作者：</text>
+          <text class='text'>{{book.author}}</text>
+        </view>
+        <view>
+          <text class='text'>出版社：</text>
+          <text class='text'>{{book.press}}</text>
+        </view>
+        <view>
+          <text class='text'>ISBN编号：</text>
+          <text class='text'>{{book.isbn}}</text>
+        </view>
+        <view>
+          <text class='text'>需订购：</text>
+          <text class='text'>{{book.total}}本</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,15 @@
+<!--pages/warehouseman/classSignature/selectSignature/selectSignature.wxml-->
+<view class="container">
+  <view class='class-container'>
+        <input name="clazz" placeholder='请输入班级查询' value='{{clazz}}' bindinput='getClazz'></input>
+        <view catchtap='getSignature' class='isbn-button'>
+          <text>确定</text>
+        </view>
+  </view>
+  <view class='tips-container'>
+    <image mode="aspectFit" src="{{imgurl}}"></image>
+    <view class='tips-container'>
+        <text>{{signature.tips}}</text>
+      </view>
+  </view>
+</view>
